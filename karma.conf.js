@@ -3,24 +3,21 @@ const path = require('path');
 const getWebpackConfig = require('./webpack.config.js');
 
 module.exports = config => {
-	const coverage = (config.coverage === true);
 	const webpackConfig = getWebpackConfig();
-	if (coverage){
-		webpackConfig.module.rules.unshift({
-			test: /\.js$/,
-			exclude: /tests/,
-			include: [
-				path.join(__dirname, 'src')
-			],
-			use: {
-				loader: 'istanbul-instrumenter-loader',
-				options: {
-					produceSourceMap: true,
-					esModules: true
-				}
+	webpackConfig.module.rules.unshift({
+		test: /\.js$/,
+		exclude: /tests/,
+		include: [
+			path.join(__dirname, 'src')
+		],
+		use: {
+			loader: 'istanbul-instrumenter-loader',
+			options: {
+				produceSourceMap: true,
+				esModules: true
 			}
-		});
-	}
+		}
+	});
 	config.set({
 		browsers: ['IE', 'Chrome', 'Firefox'/*, 'PhantomJS'*/],
 		frameworks: ['mocha'],
@@ -37,7 +34,7 @@ module.exports = config => {
 		},
 		webpack: webpackConfig,
 		webpackMiddleware: webpackConfig.devServer,
-		reporters: ['progress', coverage ? 'coverage-istanbul' : 'html'],
+		reporters: ['progress', 'coverage-istanbul', 'html'],
 		htmlReporter: {
 			outputFile: 'www/karma.tests.html',
 			pageTitle: 'Karma Tests',
