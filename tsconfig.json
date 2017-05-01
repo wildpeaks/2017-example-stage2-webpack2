@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "noEmit": true,
+        "allowJs": true,
+		"checkJs": true,
+		"moduleResolution": "Node"
+    },
+    "include": [
+        "./src/"
+    ]
+}
