@@ -19,6 +19,8 @@
 !/.vscode
 !/src
 !/package.json
+!/tsconfig.json
+!/karma.conf.js
 !/webpack.config.js
 
 
