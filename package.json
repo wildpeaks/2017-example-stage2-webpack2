@@ -13,22 +13,24 @@
   },
 
   "scripts": {
-    "reset:remove": "rimraf www || true",
-    "reset:create": "mkdir www || true",
-    "reset": "npm run reset:remove && npm run reset:create",
+    "remove:www": "rimraf www || true",
+    "create:www": "mkdir www || true",
+    "remove:logs": "rimraf logs || true",
+    "create:logs": "mkdir logs || true",
+    "reset:www": "npm run remove:www && npm run create:www",
+    "reset:logs": "npm run remove:logs && npm run create:logs",
 
     "start": "webpack-dev-server || true",
     "build:webpack": "webpack --env.minify",
-    "build": "npm run reset && npm run build:webpack",
+    "build": "npm run reset:www && npm run build:webpack",
 
     "analyze:build": "webpack --env.minify --profile --json > www/webpack.stats.json",
     "analyze:view": "webpack-bundle-analyzer www/webpack.stats.json --mode static --report www/webpack.stats.html",
-    "analyze": "npm run reset && npm run analyze:build && npm run analyze:view",
+    "analyze": "npm run reset:www && npm run analyze:build && npm run analyze:view",
 
-    "test:lint": "eslint src",
-    "test:unit": "karma start karma.conf.js --single-run",
-    "test:coverage": "karma start karma.conf.js --single-run --coverage",
-    "test": "npm run reset && npm run test:lint && npm run test:unit && npm run test:coverage"
+    "test:eslint": "eslint src",
+    "test:karma": "karma start karma.conf.js --single-run",
+    "test": "npm run reset:logs && npm run test:eslint && npm run test:karma"
   },
 
   "dependencies": {

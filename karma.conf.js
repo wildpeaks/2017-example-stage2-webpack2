@@ -36,7 +36,7 @@ module.exports = config => {
 		webpackMiddleware: webpackConfig.devServer,
 		reporters: ['progress', 'coverage-istanbul', 'html'],
 		htmlReporter: {
-			outputFile: 'www/karma.tests.html',
+			outputFile: 'logs/karma.tests.html',
 			pageTitle: 'Karma Tests',
 			subPageTitle: 'All tests that were run in Karma',
 			groupSuites: true,
@@ -45,7 +45,7 @@ module.exports = config => {
 		},
 		coverageIstanbulReporter: {
 			reports: ['html', 'lcovonly', 'text-summary'],
-			dir: path.join(__dirname, 'www/coverage/%browser%'),
+			dir: path.join(__dirname, 'logs/coverage/%browser%'),
 			includeAllSources: true,
 			skipFilesWithNoCoverage: false
 		}
