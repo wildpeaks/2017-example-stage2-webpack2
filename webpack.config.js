@@ -103,7 +103,7 @@ module.exports = ({minify = false} = {}) => {
 							{
 								loader: 'css-loader',
 								options: {
-									modules: false
+									modules: true
 								}
 							},
 							{
