@@ -1,6 +1,5 @@
 {
 	// Typescript
-	"typescript.check.tscVersion": false,
 	"typescript.tsdk": "node_modules/typescript/lib",
 
 	// Exclude files and folders
@@ -19,7 +18,8 @@
 		".vscode": true,
 		"node_modules": true,
 		"logs": true,
-		"www": true
+		"www": true,
+		"yarn.lock": true
 	},
 	"search.exclude": {
 		"LICENSE": true,
@@ -36,6 +36,7 @@
 		".vscode": true,
 		"node_modules": true,
 		"logs": true,
-		"www": true
+		"www": true,
+		"yarn.lock": true
 	}
 }

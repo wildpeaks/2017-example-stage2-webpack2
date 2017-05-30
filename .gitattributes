@@ -5,6 +5,7 @@
 .flowconfig     text
 .gitattributes  text
 .gitignore      text
+.lock           text
 LICENSE         text
 README          text
 
